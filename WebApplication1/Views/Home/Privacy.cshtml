@@ -1,0 +1,54 @@
+﻿@using WebApplication1.ViewModel
+@model GeneralPageViewModel
+
+
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+
+
+@*This Myspecial Style Section we can put/write anywhere in the file, There is no any fixed position for it.*@
+@section MySpecialStyle{
+    <style type="text/css">
+        body {
+            background: pink;
+        }
+    </style>
+}
+
+    <div style="background: @Model.FestivalTheme.Background;">
+        <h1>@ViewData["Title"]</h1>
+
+        <h3><span class="text-secondary">@Model.CompanyDetails.Title</span>@Model.CompanyDetails.Slogan</h3>
+
+        <p>Use this page to detail your site's privacy policy.</p>
+    </div>
+
+    @section Scripts
+    {
+    <script type="text/javascript">
+        swal("Welcome to the Privacy Page!!");
+    </script>
+}
+
+    @section ScriptsForCountPrivacy{
+
+    @{
+        var obj = TempData["Test"];
+
+        if (obj == null)
+
+            obj = 0;
+
+        var count = Convert.ToInt32(obj);
+        count++;
+
+        TempData["Test"] = count;
+    }
+    <hr />
+    <h2>You are visitor no @count</h2>
+}
+
+
+
+
